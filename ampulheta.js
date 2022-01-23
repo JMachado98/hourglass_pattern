@@ -1,23 +1,72 @@
-var n = 20;
+var n = prompt("valor: ");
 
-for(x = 1; x <= n; x++) {
-    for(y = 1; y <= n; y++){
-        if(
-            x == 1 || 
-            x == 2 || 
-            y == 1 || 
-            x == n || 
-            y == n ||
-            x == y ||
-            y == n-x+1 
-            
-        ){
-            process.stdout.write("#"); 
-        }
-        else
-        {
-            process.stdout.write(" ");
+var blocos = "";
+
+//Parte Superior
+for(i = 1; i<=n; i++)
+{
+    for(j = 1; j<=i;j++)
+    {
+    if(j==1){
+        blocos += "#";
+    }
+    else{
+        blocos += " ";
         }
     }
-    process.stdout.write("\n");
+    for(j=i; j <=n; j++)
+    {
+        blocos += "#";
+    }
+    for(j=i; j<=n; j++)
+    {
+        blocos += "#";
+    }
+    for(j = 1; j<=i;j++)
+    {
+    if(j==i){
+        blocos += "#";
+    }
+    else{
+        blocos += " ";
+        }
+    }
+    blocos += "\n";
 }
+
+// Parte Inferior
+for(i = 1; i<=n; i++)
+{
+    for(j = i; j<=n;j++)
+    {
+    if(i==n){
+        blocos += "#";
+    }
+    else{
+        if(j==i){
+            blocos += "#";
+        }else{
+            blocos += " ";
+            }
+        }
+    }
+    for(j=1;j<=i;j++)
+    {
+        blocos += "#"; 
+    }
+    for(j=1;j<=i;j++)
+    {
+        blocos += "#";
+    }
+    for(j=i; j<=n;j++)
+    {
+    if(j==n){
+        blocos += "#";
+    }
+    else{
+        blocos += " ";
+        }
+    }
+    blocos += "\n";
+}
+console.log(blocos)
